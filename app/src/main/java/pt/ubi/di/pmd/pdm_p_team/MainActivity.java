@@ -126,7 +126,7 @@ public class MainActivity extends Activity {
 
 
 
-    // o problema existe neste método
+    // resolvido
     public void Login(View v){
         String user;
         String password;
