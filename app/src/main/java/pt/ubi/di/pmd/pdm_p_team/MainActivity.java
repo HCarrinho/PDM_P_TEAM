@@ -101,6 +101,7 @@ public class MainActivity extends Activity {
         char[] passwordChars = pass.toCharArray();
         byte[] hashedPassword = hashPassword(passwordChars, seed, iterations, keyLength);
         String hashedPasswordClean = getHexString(hashedPassword);
+        System.out.println(hashedPasswordClean+"    password registo");
         String rawQuery = "Select * From "+oAPABD.TABLE_NAME+ " where "+oAPABD.COL1+" = '"+usernamestring+"' ;";
            Cursor oCursor = oSQLiteDB.rawQuery(rawQuery,null);
            boolean bCarryOn = oCursor.moveToFirst();
@@ -144,6 +145,8 @@ public class MainActivity extends Activity {
             char[] passwordChars = passwordIntroduzida.toCharArray();
             byte[] hashedPassword = hashPassword(passwordChars, saltBytes, iterations, keyLength);
             String passwordcorreta = getHexString(hashedPassword);
+            System.out.println(passwordcorreta+"   password introduzida");
+            System.out.println(password+"       password da bd");
             if (password.equals(passwordcorreta)) {
                 Intent iActivity = new Intent(this, MainPage.class);
                 iActivity.putExtra("string1", "login efetuado");
